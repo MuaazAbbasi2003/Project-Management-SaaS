@@ -5,9 +5,11 @@ dotenv.config({
   path: "../src/.env",
 });
 
+console.log(process.env.MONGODB);
+
 const dbConnection = async () => {
   try {
-    const db = await mongoose.connect(process.env.MONGODB_URI);
+    const db = await mongoose.connect(process.env.MONGODB);
     console.log(" MongoDb Connection is Succesfull");
   } catch (error) {
     console.log("Error in connecting to the Database ", error);
