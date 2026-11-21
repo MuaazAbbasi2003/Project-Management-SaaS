@@ -29,5 +29,5 @@ app.use(
 );
 
 app.use("/api/v1/healthcheck", router);
-app.use("/api/v1/register", regRouter);
+app.use("/api/v1/auth", regRouter);
 export default app;
