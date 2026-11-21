@@ -5,9 +5,9 @@ export const registerSchema = z
     fullName: z
       .string()
       .trim()
-      .optional()
       .min(2, "Full name must be at least 2 characters")
-      .max(50, "Full name cannot exceed 50 characters"),
+      .max(50, "Full name cannot exceed 50 characters")
+      .optional(),
     email: z
       .string()
       .trim()
