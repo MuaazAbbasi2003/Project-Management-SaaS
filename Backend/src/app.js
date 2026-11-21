@@ -2,6 +2,7 @@ import express from "express";
 import router from "./routes/healthCheck-Route.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import helmet from "helmet";
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(express.urlencoded({ extended: true, limit: "16Kb" }));
 app.use(express.static("public"));
 
 app.use(cookieParser());
+app.use(helmet());
 //Cors Cofigurationn
 app.use(
   cors({

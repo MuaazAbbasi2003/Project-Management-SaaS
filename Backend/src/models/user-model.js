@@ -78,9 +78,9 @@ const userSchema = new Schema(
 //   next();
 // });
 
-userSchema.pre("save", async function (next) {
+userSchema.pre("save", async function () {
   if (!this.isModified("password")) {
-    return next();
+    return;
   }
   this.password = await argon2.hash(this.password, { type: argon2.argon2id });
 });
