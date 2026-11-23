@@ -1,6 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 // import bcrypt from "bcrypt";
 import argon2 from "argon2";
+import { de } from "zod/v4/locales";
 // import jwt from "jsonwebtoken";
 // import crypto from "crypto";
 
@@ -97,6 +98,11 @@ userSchema.set("toJSON", {
   transform: function (doc, ret) {
     delete ret.password;
     delete ret.__v;
+    delete ret.refreshToken;
+    delete ret.forgotPasswordToken;
+    delete ret.forgotPasswordExpiry;
+    delete ret.emailVerificationExpiry;
+    delete ret.emailVerificationToken;
 
     return ret;
   },
