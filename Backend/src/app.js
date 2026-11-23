@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import helmet from "helmet";
 import regRouter from "./routes/auth.route.js";
+import errorHandler from "./middelware/error-handler.js";
 
 const app = express();
 
@@ -30,4 +31,6 @@ app.use(
 
 app.use("/api/v1/healthcheck", router);
 app.use("/api/v1/auth", regRouter);
+
+app.use(errorHandler);
 export default app;
